@@ -1,0 +1,507 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+		<head>
+				<meta charset="utf-8" />
+				
+				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+				
+				<title>墨茶の悼念页</title>
+				
+				<!-- Mobile viewport optimized: h5bp.com/viewport -->
+				<meta name="viewport" content="width=device-width" />
+				
+				<!-- Style Sheet-->
+				<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css' />
+				<link rel="stylesheet" href="jquery.lightbox-0.5.css" />
+				<link rel="stylesheet" href="style.css" />
+				
+				<!-- favicon -->
+				<link rel="shortcut icon" href="/favicon.ico" />
+				
+				<!--[if lt IE 9]>
+						<script src="js/html5.js"></script>				
+				<![endif]-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style>
+.music-box{overflow: hidden; margin: 100px auto; width: 100px; height:auto; border-radius: 10px; background: #181818; border: 5px solid #101010;}
+.music-list{overflow: hidden; margin: 0 auto; padding: 30px 15px; border-radius: 10px; border: 5px solid #fff;}
+.music-list li{overflow: hidden; margin: 0 10px 10px; width: calc(50% - 20px); float: left;}
+.music-list .music-name{overflow: hidden; margin: 0 auto; width: 100%; height: 22px; }
+.music-list .music-name p{overflow: hidden; display: table; margin: 0 auto; width: 100%; height: 22px; line-height: 22px; font-size: 16px; color: #fff; text-align: center;}
+.video-img-mask{overflow: hidden; margin:0 auto; width: 72px; height:60px;}
+.music-name p.on{
+	-webkit-animation:tada 1.5s .2s ease both infinite;
+	-moz-animation:tada 1.5s .2s ease both infinite;}
+@-webkit-keyframes tada{
+	0%{-webkit-transform:scale(1)}
+	10%,20%{-webkit-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg)}
+	100%{-webkit-transform:scale(1) rotate(0)}
+}
+@-moz-keyframes tada{
+	0%{-moz-transform:scale(1)}
+	10%,20%{-moz-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-moz-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-moz-transform:scale(1.1) rotate(-3deg)}
+	100%{-moz-transform:scale(1) rotate(0)}
+}
+</style>
+		</head>
+
+		<body>				
+			
+			<div class="container clearfix">
+			
+				<!--SIDEBAR-->
+				<aside id="sidebar">
+				
+					<!--logo-->
+					<a href="#" class="logo"><img src="images/logo.png" alt="logo" /></a>
+					
+					<!--main-menu-->
+					<nav class="main-nav">
+						<ul>
+							<li><a href="index.html">主页</a></li>
+							<li><a href="about.html">关于本站</a></li>
+							<li class="active"><a href="gallery.html">墨茶の痕迹</a></li>
+							<li><a href="blog.html">悼念墨茶</a>
+							</li>
+						</ul>
+					</nav>
+					
+					<!--social-navigatoin-->
+					<ul class="social-nav clearfix">
+<div class="music-box">
+
+	<div class="video-img-mask">
+		<img src="images/video_icon.png" class="video-iocn" alt="">
+		<audio class="audio" src="https://lawrence-1251535219.cos.ap-chengdu.myqcloud.com/fr.mp3" preload="auto"></audio>
+	</div>
+	<div class="music-name">&nbsp;</div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//jq 转js 控制暂停或播放切换
+	// 获取所有audios
+	var audios = document.getElementsByTagName("audio");
+	// 暂停函数
+	function pauseAll() {
+		var self = this;
+		[].forEach.call(audios, function (i) {
+			// 将audios中其他的audio全部暂停
+			i !== self && i.pause();
+		})
+	}
+	// 给play事件绑定暂停函数
+	[].forEach.call(audios, function (i) {
+		i.addEventListener("play", pauseAll.bind(i));
+	});
+	//点击切换播放
+	$(".video-img-mask").click(function () {
+		if(!$(this).hasClass("video-img-paly")){//如果当前播放
+			$('.video-img-mask').removeClass("video-img-paly");
+			$('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
+			$('.video-iocn').attr('src','images/video_icon.png'); //播放图片
+			$(this).addClass("video-img-paly");
+			$('.music-name p').removeClass("on");
+			$(this).parents('li').find('.music-name p').addClass("on");
+			$(this).find('.audio-iocn').attr('src','images/play_icon.png');  //播放图片
+			$(this).find('.video-iocn').attr('src','images/play_icon.png');  //播放图片
+			$(this).find('.audio').get(0).play();  //开始播
+		}else{ //如果当前暂停
+			$(this).removeClass("video-img-paly");
+			$('.music-name p').removeClass("on");
+			$(this).find('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
+			$(this).find('.video-iocn').attr('src','images/video_icon.png');  //播放图片
+			$(this).find('.audio').get(0).pause();  //开始播放
+		}
+	})
+});
+</script>
+   
+							
+							
+							
+					</ul>
+				
+				</aside>
+				
+				
+				
+				<!--CONTENT-->
+				<section id="content">
+					
+						<!--header-->
+						<header>
+						
+								<h2>墨茶的痕迹 <span> - 生前记录.</span></h2>
+														
+						</header>
+						
+						<!--content-->
+						<article class="gallery">
+						
+							<ul class="clearfix">
+								<li>
+									<a href="images/1.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/1.png" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/2.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/2.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/3.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/3.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/4.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/4.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/5.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/5.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/6.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/6.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/8.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/8.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/9.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/9.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/10.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/10.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/11.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/11.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+											<li>
+									<a href="images/12.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/12.png" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/13.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/13.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/14.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/14.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/15.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/15.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/16.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/16.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/17.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/17.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/18.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/18.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/19.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/19.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/20.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/20.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/21.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/21.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/22.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/22.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/23.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/23.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+											<li>
+									<a href="images/24.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/24.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/25.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/25.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/26.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/26.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+												<li>
+									<a href="images/36.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/36.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/37.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/37.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/38.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/38.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/39.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/39.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/42.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/42.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/43.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/43.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/44.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/44.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/45.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/45.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>B站上的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/27.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/27.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>群里的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/28.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/28.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>群里的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/29.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/29.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>群里的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/30.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/30.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>群里的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/31.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/31.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>群里的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/32.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/32.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>群里的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/33.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/33.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>群里的墨茶</span>
+									</div>
+								</li>
+									<li>
+									<a href="images/34.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/34.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>群里的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/35.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/35.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的生前账号记录</h4>
+										<span>群里的墨茶</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/40.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/40.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的好友记述</h4>
+										<span>墨茶生平</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/46.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/46.jpg" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶的好友记述</h4>
+										<span>墨茶生平</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/47.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/47.png" alt="" /></a>
+									<div class="overlay">
+										<h4>别人送墨茶的草莓</h4>
+										<span>墨茶生前记录</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/48.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/48.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶生前住处</h4>
+										<span>墨茶生前记录</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/49.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/49.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶生前住处</h4>
+										<span>墨茶生前记录</span>
+									</div>
+								</li>
+								<li>
+									<a href="images/50.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/50.png" alt="" /></a>
+									<div class="overlay">
+										<h4>墨茶生前住处</h4>
+										<span>墨茶生前记录</span>
+									</div>
+								</li>
+							</ul>
+								
+						</article>						
+						
+				</section>
+			
+			</div>
+							
+				
+				<!-- jQuery -->
+				<script src="js/jquery-1.7.1.min.js"></script>
+				<script src="js/jquery.cycle.all.js"></script>
+				<script src="js/tabs-accordian.js"></script>
+				<script src="js/jquery.lightbox-0.5.min.js"></script>
+				
+				<!-- Custom JS -->
+				<script src="js/custom.js"></script>		
+		<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

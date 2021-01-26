@@ -1,0 +1,220 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+		<head>
+				<meta charset="utf-8" />
+				
+				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+				
+				<title>墨茶の悼念页</title>
+				
+				<!-- Mobile viewport optimized: h5bp.com/viewport -->
+				<meta name="viewport" content="width=device-width" />
+				
+				<!-- Style Sheet-->
+				<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css' />
+				<link rel="stylesheet" href="style.css" />
+				
+				<!-- favicon -->
+				<link rel="shortcut icon" href="/favicon.ico" />
+				
+				<!--[if lt IE 9]>
+						<script src="js/html5.js"></script>				
+				<![endif]-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style>
+.music-box{overflow: hidden; margin: 100px auto; width: 100px; height:auto; border-radius: 10px; background: #181818; border: 5px solid #101010;}
+.music-list{overflow: hidden; margin: 0 auto; padding: 30px 15px; border-radius: 10px; border: 5px solid #fff;}
+.music-list li{overflow: hidden; margin: 0 10px 10px; width: calc(50% - 20px); float: left;}
+.music-list .music-name{overflow: hidden; margin: 0 auto; width: 100%; height: 22px; }
+.music-list .music-name p{overflow: hidden; display: table; margin: 0 auto; width: 100%; height: 22px; line-height: 22px; font-size: 16px; color: #fff; text-align: center;}
+.video-img-mask{overflow: hidden; margin:0 auto; width: 72px; height:60px;}
+.music-name p.on{
+	-webkit-animation:tada 1.5s .2s ease both infinite;
+	-moz-animation:tada 1.5s .2s ease both infinite;}
+@-webkit-keyframes tada{
+	0%{-webkit-transform:scale(1)}
+	10%,20%{-webkit-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg)}
+	100%{-webkit-transform:scale(1) rotate(0)}
+}
+@-moz-keyframes tada{
+	0%{-moz-transform:scale(1)}
+	10%,20%{-moz-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-moz-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-moz-transform:scale(1.1) rotate(-3deg)}
+	100%{-moz-transform:scale(1) rotate(0)}
+}
+</style>
+		</head>
+		<body>				
+			
+			<div class="container clearfix">
+			
+				<!--SIDEBAR-->
+				<aside id="sidebar">
+				
+					<!--logo-->
+					<a href="#" class="logo"><img src="images/logo.png" alt="logo" /></a>
+					
+					<!--main-menu-->
+					<nav class="main-nav">
+						<ul>
+							<li><a href="index.html">主页</a></li>
+							<li><a href="about.html">关于本站</a></li>
+							<li><a href="gallery.html">墨茶の痕迹</a></li>
+							<li class="active"><a href="blog.html">悼念墨茶</a>
+							</li>
+						</ul>
+					</nav>
+					
+					<!--social-navigatoin-->
+					<ul class="social-nav clearfix">
+						<div class="music-box">
+
+	<div class="video-img-mask">
+		<img src="images/video_icon.png" class="video-iocn" alt="">
+		<audio class="audio" src="https://lawrence-1251535219.cos.ap-chengdu.myqcloud.com/fr.mp3" preload="auto"></audio>
+	</div>
+	<div class="music-name">&nbsp;</div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//jq 转js 控制暂停或播放切换
+	// 获取所有audios
+	var audios = document.getElementsByTagName("audio");
+	// 暂停函数
+	function pauseAll() {
+		var self = this;
+		[].forEach.call(audios, function (i) {
+			// 将audios中其他的audio全部暂停
+			i !== self && i.pause();
+		})
+	}
+	// 给play事件绑定暂停函数
+	[].forEach.call(audios, function (i) {
+		i.addEventListener("play", pauseAll.bind(i));
+	});
+	//点击切换播放
+	$(".video-img-mask").click(function () {
+		if(!$(this).hasClass("video-img-paly")){//如果当前播放
+			$('.video-img-mask').removeClass("video-img-paly");
+			$('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
+			$('.video-iocn').attr('src','images/video_icon.png'); //播放图片
+			$(this).addClass("video-img-paly");
+			$('.music-name p').removeClass("on");
+			$(this).parents('li').find('.music-name p').addClass("on");
+			$(this).find('.audio-iocn').attr('src','images/play_icon.png');  //播放图片
+			$(this).find('.video-iocn').attr('src','images/play_icon.png');  //播放图片
+			$(this).find('.audio').get(0).play();  //开始播
+		}else{ //如果当前暂停
+			$(this).removeClass("video-img-paly");
+			$('.music-name p').removeClass("on");
+			$(this).find('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
+			$(this).find('.video-iocn').attr('src','images/video_icon.png');  //播放图片
+			$(this).find('.audio').get(0).pause();  //开始播放
+		}
+	})
+});
+</script>
+   
+						
+						
+						
+						
+						
+					</ul>
+				
+				</aside>
+				
+				
+				
+				<!--CONTENT-->
+				<section id="content">
+					
+						<!--header-->
+						<header>
+						
+								<h2>悼念墨茶<span> - 群众留言</span></h2>
+														
+						</header>
+						
+						<!--BLOG-->
+						<section id="blog" class="clearfix">
+						
+								<!--blog content-->
+								<div class="blog-content column">
+									
+										<article class="post">
+														
+												<h3 class="title"><a href="#">墨茶，一位UP主的身后事,一场被消费的死亡</a></h3>
+												<p class="meta"><span>2021/1/26</span></p>
+												<blockquote>
+													<p>梵高的愤怒一分不值，直到他被送进了坟墓。</p>
+												</blockquote>
+												<p>2021年1月21日晚间，B站一位UP主墨茶Offcial离世的消息冲上微博热搜，这位青年的b站动态所展现出的阳光和乐观的精神，和他在现实中贫病交加的境遇形成了巨大的反差，这条令人悲痛的信息瞬间突破了万千网友的心防，悲伤与惋惜萦绕在大家的心头。</p>
+												
+												<p>人走茶未凉，在墨茶去世的消息广泛传播开之后，墨茶生前不到两百粉的账号在短短两天之内瞬间涨粉到一百万，无数人涌入他曾经访客寥寥无几的b站动态，附上一句：</p>
+												<h4>“对不起，现在才认识你。”</h4>
+												<p>但紧随其后的是质疑墨茶死亡真实性的声音，一则转发的消息在各大QQ群内被广泛传播，其内容直指墨茶伪造死亡，同时间知乎上一名用户名为“初码”（现用户名为：初码张工）的用户更是扬言要讲墨茶“绳之以法”，一时“墨茶事件反转”的论调在舆论场上喧嚣尘上。</p>
+												<p>短短几日内，各方势力带着自己的“身份认同”的语境，“你方唱罢我登场”。前有极端女权主义者借机攻击男性继续挑动性别对立，后有无数营销自媒体借着“回顾墨茶动态”把庞大流量拥揽入怀，饱受网友质疑的墨茶父母现身说明情况，却与当地医院的说法不符......在多方的目光汇聚下，一位生前籍籍无名的小up，似乎现在盖棺也无法定论。</p>
+												<p>马克思从人与人的关系角度界定，在他看来人是一切社会关系的总和，生前的墨茶按照目前报道所揭示的情况来看，可满足他社交属性的朋友似乎只有他在网络上屡次对这个贫病交加的青年伸出援手的朋友们，可现在，一场死亡，将这个社会边缘的青年一下子拉进了光鲜亮丽的舆论场中央，可惜人死魂亦去，娱乐至死的舆论场无从下手，只能为这位青年人生的终局披上包装，于是乎：</p>
+												<h4>“墨茶的身后事，变成了大家的事。”</h4>			
+												<p>斯坦福大学脑科学教授，大卫伊格曼曾经描述过人的三次死亡，第一次死亡，就是医学上认证的死亡，这个时候你会被医院宣告已经死去。而第二次死亡，是在你的葬礼上。当你生前的那些亲朋好友神情肃穆，甚至是泣不成声的出席你的葬礼的时候，这意味着一个人的第二次死亡，这时你的社会存在，会被干干净净的从这个社会上，从你生前各种复杂的人际关系里抹去。第三次死亡，也是最后一次死亡，听起来有些伤感。当这个世界上还记着你的最后一个人离开人世，抑或把你完全的遗忘，那么也就代表着你真的彻底的离去了。这个世界，整个洪荒宇宙将再也找不到任何跟你有关的人事，找不到任何能够证明你来过这个世上的信息。而这三次死亡在马克思看来，便是改造世界的能力的完全遗失，和社会联系的消失。共同促成了一个个体的死亡。</p>
+												<p>对于墨茶而言，现实中的他甚至在死后都没人能第一时间发现，而在网上的他却在短短的时间内被千万人阅尽一生，似乎属于他的第三次死亡终究要来的晚一些，但也从没有人统计过，这一次次关注的流量背后所产生的经济利益又能拯救多少个可怜又可敬的墨茶，正如在他战地一视频下热评第一所说的那样“到最后也没考虑卖惨过活，直到死后才被人所知，一个被命运针对也从未低头的硬汉的灵魂。”</p>	
+												<h4>“这是一次昂贵，但是和墨茶没多大关系的死亡”</h4>
+												<p>墨茶作为一个原本和这个消费社会几乎“绝缘”的青年，在死后却意外的和社会变得“有缘”起来。远到“三和大神”“抗压吧老鼠人”这些都市社会的边缘群体，近到蛋壳公寓暴雷事件被迫被赶出家门的独身青年，他们的事件脉络已经慢慢与墨茶这位可怜的青年重合，他们所折射了一个深层的现实，那边是在这个社会中，存活的权力也终于被异化成为了一件可以租赁但不可买断的商品。</p>
+												<p>从这个角度再来回顾这个世界，无数互联网大厂中996的打工人，穷极自己的一生似乎是在未来美好未来而奋斗，但是剥下这层浓厚鸡汤所铸成的外衣，可怜又可敬的他们不也是拼尽自己改造客观世界的全部技能，来向全社会租下自己生存的权力。</p>
+												<p>可这些劳动者们不曾想过，自己的身上拥有一笔自己此生永远无法触及的财富，那便是一场原本属于自己的死亡。</p>
+												<p>生与死，原本就是对立统一的现象，但是在墨茶事件中，这个贫病青年的死亡却被无数人变成了可以治肺痨的人血馒头，一个自然的过程被人为的干涉，死亡，从这一刻开始有了属于他的附加值，无数原本与墨茶不存在强关联社会关系的个体蜂拥而至，从这场死亡中找寻着属于自己的角度，把死亡的解读兑换成符合自身利益的筹码，让一场悲剧成为了讨伐异端的称手兵器。</p>
+												<p>每次劳动者逝去的新闻，都会变成一个个意见领袖摇旗呐喊的冲锋号令，成为吸引着炙热眼球的摇钱树，死亡到此已经成为了属于社会的一种另类的消费品，无产者所剩的最后一点尊严也就此不属于他本身。</p>
+												<h3>私有制为基础的商品经济中，人与人的社会关系被物与物的关系所掩盖，从而使商品具有一种神秘的属性，似乎它具有决定商品生产者命运的神秘力量。马克思把商品世界的这种神秘性比喻为拜物教，称之为商品拜物教。</h3>
+												<p>而如今，马克思口中的神秘性已经成为了消费社会运行的铁律，紧紧的束缚在了我们每个人的肉体与精神之上，我们本身作为人已经不具备任何属性，我们必要用商品为自己赋能，我们穿什么？吃什么？玩什么？看什么？似乎只有这些才能界定我们自身，才能决定一个千古的哲学问题：</p>
+												<h3>“我们是谁？”</h3>
+												<p>到了今天，墨茶离去的世界，死亡也终于成为了这万千商品其中之一。</p>
+												<p>一位up的身后事，已然成为界定自我的消费盛宴。</p>
+												<p>看吧，我的朋友，你已经拥有了免费的《赛博朋克2021》何必去追寻《赛博朋克2077》呢？</p>
+												<p>毕竟，生死都已不公平，唯有商品与消费永恒。</p>
+												
+												<p>作者｜Barricade（棱镜视野）</p>
+																					
+												</article>
+									
+								</div>
+								
+								<!--blog sidebar-->
+								<aside class="blog-sidebar column">
+							
+										
+										<div class="widget">
+												<h4>悼念墨茶</h4>
+												
+										</div>
+										
+										
+								
+								</aside>
+							
+						</section>
+						
+				</section>
+			
+			</div>
+							
+				
+				<!-- jQuery -->
+				<script src="js/jquery-1.7.1.min.js"></script>
+				<script src="js/jquery.cycle.all.js"></script>
+				<script src="js/tabs-accordian.js"></script>				
+				
+				<!-- Custom JS -->
+				<script src="js/custom.js"></script>		
+		<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

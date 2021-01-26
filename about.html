@@ -1,0 +1,182 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+		<head>
+				<meta charset="utf-8" />
+				
+				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+				
+				<title>墨茶の悼念页</title>
+				
+				<!-- Mobile viewport optimized: h5bp.com/viewport -->
+				<meta name="viewport" content="width=device-width" />
+				
+				<!-- Style Sheet-->
+				<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css' />
+				<link rel="stylesheet" href="style.css" />
+				
+				<!-- favicon -->
+				<link rel="shortcut icon" href="/favicon.ico" />
+				
+				<!--[if lt IE 9]>
+						<script src="js/html5.js"></script>				
+				<![endif]-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<style>
+.music-box{overflow: hidden; margin: 100px auto; width: 100px; height:auto; border-radius: 10px; background: #181818; border: 5px solid #101010;}
+.music-list{overflow: hidden; margin: 0 auto; padding: 30px 15px; border-radius: 10px; border: 5px solid #fff;}
+.music-list li{overflow: hidden; margin: 0 10px 10px; width: calc(50% - 20px); float: left;}
+.music-list .music-name{overflow: hidden; margin: 0 auto; width: 100%; height: 22px; }
+.music-list .music-name p{overflow: hidden; display: table; margin: 0 auto; width: 100%; height: 22px; line-height: 22px; font-size: 16px; color: #fff; text-align: center;}
+.video-img-mask{overflow: hidden; margin:0 auto; width: 72px; height:60px;}
+.music-name p.on{
+	-webkit-animation:tada 1.5s .2s ease both infinite;
+	-moz-animation:tada 1.5s .2s ease both infinite;}
+@-webkit-keyframes tada{
+	0%{-webkit-transform:scale(1)}
+	10%,20%{-webkit-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg)}
+	100%{-webkit-transform:scale(1) rotate(0)}
+}
+@-moz-keyframes tada{
+	0%{-moz-transform:scale(1)}
+	10%,20%{-moz-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-moz-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-moz-transform:scale(1.1) rotate(-3deg)}
+	100%{-moz-transform:scale(1) rotate(0)}
+}
+</style>
+		</head>
+		<body>				
+			
+			<div class="container clearfix">
+			
+				<!--SIDEBAR-->
+				<aside id="sidebar">
+				
+					<!--logo-->
+					<a href="#" class="logo"><img src="images/logo.png" alt="logo" /></a>
+					
+					<!--main-menu-->
+					<nav class="main-nav">
+						<ul>
+							<li><a href="index.html">主页</a></li>
+							<li class="active"><a href="about.html">关于本站</a></li>
+							<li><a href="gallery.html">墨茶の痕迹</a></li>
+							<li><a href="blog.html">悼念墨茶</a></li>
+						</ul>
+					</nav>
+					
+					<!--social-navigatoin-->
+					<ul class="social-nav clearfix">
+<div class="music-box">
+
+	<div class="video-img-mask">
+		<img src="images/video_icon.png" class="video-iocn" alt="">
+		<audio class="audio" src="https://lawrence-1251535219.cos.ap-chengdu.myqcloud.com/fr.mp3" preload="auto"></audio>
+	</div>
+	<div class="music-name">&nbsp;</div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//jq 转js 控制暂停或播放切换
+	// 获取所有audios
+	var audios = document.getElementsByTagName("audio");
+	// 暂停函数
+	function pauseAll() {
+		var self = this;
+		[].forEach.call(audios, function (i) {
+			// 将audios中其他的audio全部暂停
+			i !== self && i.pause();
+		})
+	}
+	// 给play事件绑定暂停函数
+	[].forEach.call(audios, function (i) {
+		i.addEventListener("play", pauseAll.bind(i));
+	});
+	//点击切换播放
+	$(".video-img-mask").click(function () {
+		if(!$(this).hasClass("video-img-paly")){//如果当前播放
+			$('.video-img-mask').removeClass("video-img-paly");
+			$('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
+			$('.video-iocn').attr('src','images/video_icon.png'); //播放图片
+			$(this).addClass("video-img-paly");
+			$('.music-name p').removeClass("on");
+			$(this).parents('li').find('.music-name p').addClass("on");
+			$(this).find('.audio-iocn').attr('src','images/play_icon.png');  //播放图片
+			$(this).find('.video-iocn').attr('src','images/play_icon.png');  //播放图片
+			$(this).find('.audio').get(0).play();  //开始播
+		}else{ //如果当前暂停
+			$(this).removeClass("video-img-paly");
+			$('.music-name p').removeClass("on");
+			$(this).find('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
+			$(this).find('.video-iocn').attr('src','images/video_icon.png');  //播放图片
+			$(this).find('.audio').get(0).pause();  //开始播放
+		}
+	})
+});
+</script>
+   	
+							
+							
+							
+					</ul>
+				
+				</aside>
+				
+				
+				
+				<!--CONTENT-->
+				<section id="content">
+					
+						<!--header-->
+						<header>
+						
+								<h2>关于本站 <span> - 愿墨茶安息</span></h2>						
+						</header>
+						
+						<!--content-->
+						<article>
+								<h3>愿每个人都能被世界温柔以待</h3>
+														
+								<p>在各种各样意识形态机器、集体幻觉的唤询与规训下，真实的墨茶已经被埋藏。“后真相时代”，或许唯一不重要的便是真相。但墨茶，他并不是一个符号，供人死后消费。曾有血有肉认真活过的他，只是需要安静，真相为他而存。简中网络的记忆只有七天。互联网不会记住真实的他，我们给他留一个安静的家。本站完全公益。</p>
+								
+								<ul>
+									<li>- 感谢您悼念墨茶，多一个人，就多一份真实的记忆.</li>
+									<li>- 本站不设评论区，希望给墨茶安静.</li>
+									<li>- 如果有想说的话，或者想补充墨茶生前记录，可以发送至邮箱：clarklawrenceprism@gmail.com，审核通过后将发布至本站.</li>
+								</ul>
+								
+								<p>墨茶Official（1998年4月5日-2021年1月10日），姓陈，男，四川凉山人，B站UP主。2021年1月10日10时许，“墨茶official”在会理县出租屋内被发现死亡。经会理县公安局勘查，确定其为因病死亡，在会理县殡仪馆火化后，其骨灰由母亲带回西昌，于1月12日安葬。墨茶Official是一位哔哩哔哩UP主，自2020年2月起开始在哔哩哔哩投稿、直播，共发布28条视频作品，其中，大多是游戏直播剪辑作品，也穿插着一些二次元主题的混剪视频。</p>
+								<p>墨茶在B站的第一条视频，发布于2020年2月27日，是一条关于游戏的视频。墨茶现有的95条动态中，28条视频是游戏直播时的剪辑，剩下的67条，则是他的生活日常.2020年6月13日，墨茶在B站公开一份医院入院凭证，其中写明，经初步诊断为鼻部肿物，拟入院日期为2020年6月10日。2020年7月31日，他的动态显示“没想到不知不觉已经一百粉丝了，这是好的开始”。</p>
+
+								<p>2020年8月30日，B站up主“御坂伊里奇”替墨茶发出求助：“墨茶是个低收入的小工人，无力承担诊治费用，希望得到大家的帮助，能让他尽快手术。”墨茶在数月前感觉身体不适，到医院检查后发现鼻腔内有肿物，医生建议住院并进行病理检查，但因为没钱，墨茶当时并未进行诊治。求助发出时，肿物已经让墨茶呼吸困难，并且压迫到了他的视觉神经。</p>
+								
+								<p>曾有网友建议墨茶以网络互助的方式筹款用以治疗，但因为墨茶没有钱做检查，也没有办法提供申请网络互助所需的相关材料而作罢。</p>
+								
+								<p>2020年12月21日，墨茶说：“看动态全都在吃饺子，可是我从小到大都没有在冬至吃过饺子，第一次知道有这样的习俗。”.墨茶曾给自己的群友说，2500够他一年生活费。余额-2049.34元，因为买不起整瓶，治病的药都要一片一片的买。2020年12月29日，墨茶发文说，“老想吃草莓，最近被病折磨的吃什么吐什么，然后特别特别想吃草莓。可惜草莓太贵了。”有网友在该条留言下称，“好想请你吃草莓。”2020年12月31日，墨茶发布了最后一条动态称，“然而我还在病床上躺着，令人感叹。”</p>
+								
+								<p>墨茶奶奶生病，因病致贫，父母躲债跑路，自己高中辍学后打工糊口，又被黑厂欺骗，没有领到工资。鼻子上也长了肿瘤。最后在切除肿瘤时发现罹患糖尿病，但无积蓄继续治疗，最后因酮症酸中毒逝世。墨茶的身份还被其父母用于注册公司。墨茶生前有数个B站账号，其中账号“TEA黑茶”（已被封禁）发布的视频、评论表明，墨茶生前是一位马克思列宁主义者。</p>
+						</article>						
+						
+				</section>
+			
+			</div>
+							
+				
+				<!-- jQuery -->
+				<script src="js/jquery-1.7.1.min.js"></script>
+				<script src="js/jquery.cycle.all.js"></script>
+				<script src="js/tabs-accordian.js"></script>				
+				
+				<!-- Custom JS -->
+				<script src="js/custom.js"></script>		
+		<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>

@@ -1,0 +1,208 @@
+<!doctype html>
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+		<head>
+				<meta charset="utf-8" />
+				
+				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+				
+				<title>墨茶の悼念页</title>
+				
+				<!-- Mobile viewport optimized: h5bp.com/viewport -->
+				<meta name="viewport" content="width=device-width" />
+				
+				<!-- Style Sheet-->
+				<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css' />
+				<link rel="stylesheet" href="style.css" />
+				
+				<!-- favicon -->
+				<link rel="shortcut icon" href="/favicon.ico" />
+				
+				<!--[if lt IE 9]>
+						<script src="js/html5.js"></script>				
+				<![endif]-->
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />.
+		<style>
+.music-box{overflow: hidden; margin: 100px auto; width: 100px; height:auto; border-radius: 10px; background: #181818; border: 5px solid #101010;}
+.music-list{overflow: hidden; margin: 0 auto; padding: 30px 15px; border-radius: 10px; border: 5px solid #fff;}
+.music-list li{overflow: hidden; margin: 0 10px 10px; width: calc(50% - 20px); float: left;}
+.music-list .music-name{overflow: hidden; margin: 0 auto; width: 100%; height: 22px; }
+.music-list .music-name p{overflow: hidden; display: table; margin: 0 auto; width: 100%; height: 22px; line-height: 22px; font-size: 16px; color: #fff; text-align: center;}
+.video-img-mask{overflow: hidden; margin:0 auto; width: 72px; height:60px;}
+.music-name p.on{
+	-webkit-animation:tada 1.5s .2s ease both infinite;
+	-moz-animation:tada 1.5s .2s ease both infinite;}
+@-webkit-keyframes tada{
+	0%{-webkit-transform:scale(1)}
+	10%,20%{-webkit-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg)}
+	100%{-webkit-transform:scale(1) rotate(0)}
+}
+@-moz-keyframes tada{
+	0%{-moz-transform:scale(1)}
+	10%,20%{-moz-transform:scale(0.9) rotate(-3deg)}
+	30%,50%,70%,90%{-moz-transform:scale(1.1) rotate(3deg)}
+	40%,60%,80%{-moz-transform:scale(1.1) rotate(-3deg)}
+	100%{-moz-transform:scale(1) rotate(0)}
+}
+</style>
+		</head>
+		<body>				
+			
+			<div class="container clearfix">
+			
+				<!--SIDEBAR-->
+				<aside id="sidebar">
+				
+					<!--logo-->
+					<a href="#" class="logo"><img src="images/logo.png" alt="logo" /></a>
+					
+					<!--main-menu-->
+					<nav class="main-nav">
+						<ul>
+							<li><a href="index.html">主页</a></li>
+							<li><a href="about.html">关于本站</a></li>
+							<li><a href="gallery.html">墨茶の痕迹</a></li>
+							<li class="active"><a href="blog.html">悼念墨茶</a>
+							</li>
+						</ul>
+					</nav>
+					
+					<!--social-navigatoin-->
+					<ul class="social-nav clearfix">
+						<div class="music-box">
+
+	<div class="video-img-mask">
+		<img src="images/video_icon.png" class="video-iocn" alt="">
+		<audio class="audio" src="https://lawrence-1251535219.cos.ap-chengdu.myqcloud.com/fr.mp3" preload="auto"></audio>
+	</div>
+	<div class="music-name">&nbsp;</div>
+
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	//jq 转js 控制暂停或播放切换
+	// 获取所有audios
+	var audios = document.getElementsByTagName("audio");
+	// 暂停函数
+	function pauseAll() {
+		var self = this;
+		[].forEach.call(audios, function (i) {
+			// 将audios中其他的audio全部暂停
+			i !== self && i.pause();
+		})
+	}
+	// 给play事件绑定暂停函数
+	[].forEach.call(audios, function (i) {
+		i.addEventListener("play", pauseAll.bind(i));
+	});
+	//点击切换播放
+	$(".video-img-mask").click(function () {
+		if(!$(this).hasClass("video-img-paly")){//如果当前播放
+			$('.video-img-mask').removeClass("video-img-paly");
+			$('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
+			$('.video-iocn').attr('src','images/video_icon.png'); //播放图片
+			$(this).addClass("video-img-paly");
+			$('.music-name p').removeClass("on");
+			$(this).parents('li').find('.music-name p').addClass("on");
+			$(this).find('.audio-iocn').attr('src','images/play_icon.png');  //播放图片
+			$(this).find('.video-iocn').attr('src','images/play_icon.png');  //播放图片
+			$(this).find('.audio').get(0).play();  //开始播
+		}else{ //如果当前暂停
+			$(this).removeClass("video-img-paly");
+			$('.music-name p').removeClass("on");
+			$(this).find('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
+			$(this).find('.video-iocn').attr('src','images/video_icon.png');  //播放图片
+			$(this).find('.audio').get(0).pause();  //开始播放
+		}
+	})
+});
+</script>
+   
+						
+						
+					</ul>
+				
+				</aside>
+				
+				
+				
+				<!--CONTENT-->
+				<section id="content">
+					
+						<!--header-->
+						<header>
+						
+								<h2>悼念墨茶<span> - 群众留言</span></h2>
+														
+						</header>
+						
+						<!--BLOG-->
+						<section id="blog" class="clearfix">
+						
+								<!--blog content-->
+								<div class="blog-content column">
+									
+										<article class="post">
+														
+												<h3 class="title"><a href="#">我与墨茶Official的小故事</a></h3>
+												<p class="meta"><span>2021/1/22 雨雪啦(微博:我是小赵01。)</span></p>
+												<blockquote>
+													<p>来源：http://www.360doc.cn/article/27492377_958341870.html</p>
+												</blockquote>
+												<p>从昨晚墨茶Official事件就在Q群中流传，也传到了我所在的B站交流群。</p>
+												
+												<p>我们这个群一开始是某个人建的UP主交流群，后来慢慢变成了什么都聊的游戏群。</p>
+												<p>有成员注意到，墨茶Official以前的网名叫清羽，这恰巧和我群以前一位用着有马公生头像的活跃成员昵称重合，通过更多线索比对，同样是四川凉山，最关键的是我通过支付宝转账记录得知的他真名，与墨茶入院凭证上露出的姓名边角一致。</p>
+												<p>至此我们判断，墨茶就是我们以前认识的清羽。顿时我们都陷入了震惊。</p>
+												<p>清羽曾是我群元老，群里总有那么几个活跃分子，他也是其中之一，每天和我们吹水。虽然时间长了大家每天有说有笑，但是说到底还是网络社交。然而从某一天开始，他的发言有些不知所云。那几天他说到自己“被家里赶出来了”“钱包被偷了”时间过于久远，只零星能回忆起这些碎片。</p>
+														
+												<p>没过两天的一个晚上，我在外面运动时突然接到陌生的电话，对面说“扇子我是清羽，我现在……（哭）我现在在外面，也没有钱……我找了很多人但是都不行，我就想到你了，只有你能帮我了……你能不能先借我点钱，等以后我一定还你！”我在确认了他身份之后，觉得他说的应该是真的，于是没多犹豫就先借给了他500，让他安顿下来。后来过了几天，他再次通过QQ向我求助，于是我又分两次给了他各500元，至此我总共借给清羽1500元。</p>
+												<p>对于墨茶而言，现实中的他甚至在死后都没人能第一时间发现，而在网上的他却在短短的时间内被千万人阅尽一生，似乎属于他的第三次死亡终究要来的晚一些，但也从没有人统计过，这一次次关注的流量背后所产生的经济利益又能拯救多少个可怜又可敬的墨茶，正如在他战地一视频下热评第一所说的那样“到最后也没考虑卖惨过活，直到死后才被人所知，一个被命运针对也从未低头的硬汉的灵魂。”</p>	
+												
+												<p>时间过得很快，转眼半年过去了，当我想起清羽没还钱这档子事的时候，他就失联了，QQ也不回，群里也没见再说过话，仿佛他就这么人间蒸发了。后来在群聊当中，我才知道，借他钱的不只我自己。清羽当时总共找群里能联系上的几个人借了2000多元。</p>
+												<p>毕竟这些钱也无从追查，我们索性都当是丢了，由此群里也产生了关于他的笑话，因为不知所云与借钱不还这些事，我们常用“孔乙己”来调侃他。但终究我们不知道是被骗了还是他又遇到了什么别的事。</p>
+												<p>直到昨天。我昨夜今晨翻阅了墨茶的动态，心情复杂，却又没起什么波澜。时隔五年我们终于知道了当年借钱不还的那个人的下落，却是以这种方式。看着他曾经的一条条动态，我心想，啊，他还没放弃做mad啊，还做了V，播游戏视频，至少去年他还能够在他心爱的领域有所活跃……</p>
+												<p>我们无法想象他在群里的时候过着怎样的生活和我们聊天，也无从得知他消失后经历了些什么，又是如何换了一个身份重回B站。只是当我们发现清羽的真名与墨茶的入院单对上的时候，除了震惊也多了一分失落。</p>
+												<p>走好吧，清羽。事到如今真希望当年我们几个借你的钱真的帮你度过了一个难关，只是没想到你还是这么艰难的走完了剩下的路。我们这些年可能错怪你了。你并不是孤身一人，我们这群人都记得你。</p>
+												
+																					
+												</article>
+									
+								</div>
+								
+								<!--blog sidebar-->
+								<aside class="blog-sidebar column">
+							
+										
+										<div class="widget">
+												<h4>悼念墨茶</h4>
+												
+										</div>
+										
+										
+								
+								</aside>
+							
+						</section>
+						
+				</section>
+			
+			</div>
+							
+				
+				<!-- jQuery -->
+				<script src="js/jquery-1.7.1.min.js"></script>
+				<script src="js/jquery.cycle.all.js"></script>
+				<script src="js/tabs-accordian.js"></script>				
+				
+				<!-- Custom JS -->
+				<script src="js/custom.js"></script>		
+		<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+</body>
+</html>
