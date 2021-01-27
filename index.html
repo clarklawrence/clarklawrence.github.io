@@ -2,194 +2,1007 @@
 <!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-		<head>
-				<meta charset="utf-8" />
-				
-				<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-				
-				<title>墨茶の悼念页</title>
-				
-				<!-- Mobile viewport optimized: h5bp.com/viewport -->
-				<meta name="viewport" content="width=device-width" />
-				
-				<!-- Style Sheet-->
-				<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet' type='text/css' />
-				<link rel="stylesheet" href="style.css" />
-				
-				<!-- favicon -->
-				<link rel="shortcut icon" href="/favicon.ico" />
-				
-				<!--[if lt IE 9]>
-						<script src="js/html5.js"></script>				
-				<![endif]-->
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-			<style>
-.music-box{overflow: hidden; margin: 100px auto; width: 100px; height:auto; border-radius: 10px; background: #181818; border: 5px solid #101010;}
-.music-list{overflow: hidden; margin: 0 auto; padding: 30px 15px; border-radius: 10px; border: 5px solid #fff;}
-.music-list li{overflow: hidden; margin: 0 10px 10px; width: calc(50% - 20px); float: left;}
-.music-list .music-name{overflow: hidden; margin: 0 auto; width: 100%; height: 22px; }
-.music-list .music-name p{overflow: hidden; display: table; margin: 0 auto; width: 100%; height: 22px; line-height: 22px; font-size: 16px; color: #fff; text-align: center;}
-.video-img-mask{overflow: hidden; margin:0 auto; width: 72px; height:60px;}
-.music-name p.on{
-	-webkit-animation:tada 1.5s .2s ease both infinite;
-	-moz-animation:tada 1.5s .2s ease both infinite;}
-@-webkit-keyframes tada{
-	0%{-webkit-transform:scale(1)}
-	10%,20%{-webkit-transform:scale(0.9) rotate(-3deg)}
-	30%,50%,70%,90%{-webkit-transform:scale(1.1) rotate(3deg)}
-	40%,60%,80%{-webkit-transform:scale(1.1) rotate(-3deg)}
-	100%{-webkit-transform:scale(1) rotate(0)}
-}
-@-moz-keyframes tada{
-	0%{-moz-transform:scale(1)}
-	10%,20%{-moz-transform:scale(0.9) rotate(-3deg)}
-	30%,50%,70%,90%{-moz-transform:scale(1.1) rotate(3deg)}
-	40%,60%,80%{-moz-transform:scale(1.1) rotate(-3deg)}
-	100%{-moz-transform:scale(1) rotate(0)}
-}
-</style>
-		</head>
-		<body>				
-			
-			<div class="container clearfix">
-			
-				<!--SIDEBAR-->
-				<aside id="sidebar">
-				
-					<!--logo-->
-					<a href="#" class="logo"><img src="images/logo.png" alt="logo" /></a>
-					
-					<!--main-menu-->
-					<nav class="main-nav">
-						<ul>
-							<li class="active"><a href="index.html">主页</a></li>
-							<li><a href="about.html">关于本站</a></li>
-							<li><a href="gallery.html">墨茶の痕迹</a></li>
-							<li><a href="blog.html">悼念墨茶</a>
-							</li>
-						</ul>
-					</nav>
-					
-					<!--social-navigatoin-->
-					<ul class="social-nav clearfix">
-					
-<div class="music-box">
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
 
-	<div class="video-img-mask">
-		<img src="images/video_icon.png" class="video-iocn" alt="">
-		<audio class="audio" src="https://lawrence-1251535219.cos.ap-chengdu.myqcloud.com/fr.mp3" preload="auto"></audio>
-	</div>
-	<div class="music-name">&nbsp;</div>
+<head>
+	<meta charset="utf-8" />
 
-</div>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-<script type="text/javascript" src="js/jquery.min.js"></script>
-<script type="text/javascript">
-$(function(){
-	//jq 转js 控制暂停或播放切换
-	// 获取所有audios
-	var audios = document.getElementsByTagName("audio");
-	// 暂停函数
-	function pauseAll() {
-		var self = this;
-		[].forEach.call(audios, function (i) {
-			// 将audios中其他的audio全部暂停
-			i !== self && i.pause();
-		})
-	}
-	// 给play事件绑定暂停函数
-	[].forEach.call(audios, function (i) {
-		i.addEventListener("play", pauseAll.bind(i));
-	});
-	//点击切换播放
-	$(".video-img-mask").click(function () {
-		if(!$(this).hasClass("video-img-paly")){//如果当前播放
-			$('.video-img-mask').removeClass("video-img-paly");
-			$('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
-			$('.video-iocn').attr('src','images/video_icon.png'); //播放图片
-			$(this).addClass("video-img-paly");
-			$('.music-name p').removeClass("on");
-			$(this).parents('li').find('.music-name p').addClass("on");
-			$(this).find('.audio-iocn').attr('src','images/play_icon.png');  //播放图片
-			$(this).find('.video-iocn').attr('src','images/play_icon.png');  //播放图片
-			$(this).find('.audio').get(0).play();  //开始播
-		}else{ //如果当前暂停
-			$(this).removeClass("video-img-paly");
-			$('.music-name p').removeClass("on");
-			$(this).find('.audio-iocn').attr('src','images/audio_icon.png'); //播放图片
-			$(this).find('.video-iocn').attr('src','images/video_icon.png');  //播放图片
-			$(this).find('.audio').get(0).pause();  //开始播放
+	<title>墨茶の悼念页</title>
+
+	<!-- Mobile viewport optimized: h5bp.com/viewport -->
+	<meta name="viewport" content="width=device-width" />
+
+	<!-- Style Sheet-->
+	<link href='http://fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800' rel='stylesheet'
+		type='text/css' />
+	<link rel="stylesheet" href="jquery.lightbox-0.5.css" />
+	<link rel="stylesheet" href="style.css" />
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="/favicon.ico" />
+
+	<!--[if lt IE 9]>
+                        <script src="js/html5.js"></script>                
+                <![endif]-->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<style>
+		.music-box {
+			overflow: hidden;
+			margin: 100px auto;
+			width: 100px;
+			height: auto;
+			border-radius: 10px;
+			background: #181818;
+			border: 5px solid #101010;
 		}
-	})
-});
-</script>
-   
-   
-							
-					</ul>
-				 
-				</aside>
-				
-				
-				
-				<!--CONTENT-->
-				<section id="content">
-					
-						<!--slider-->
-						<div class="slider">
-							
-							<div class="slides">
-							
-								<!--slide-->
-								<article>
-										<img src="images/image_1.jpg" alt="Slider Image" />
-										<p>图源：芒果猫Official</p>
-								</article>	
-<!--slide-->
-								<article>
-										<img src="images/image_2.jpg" alt="Slider Image" />
-										<p>希望你有很多的草莓和饺子吃</p>
-								</article>
-								
-								<!--slide-->
-								<article>
-										<img src="images/image_3.jpg" alt="Slider Image" />
-										<p>愿你一路走好</p>
-								</article>
-								
-								<!--slide-->
-								<article>
-										<img src="images/image_4.jpg" alt="Slider Image" />
-										<p>大家来看你来了</p>
-								</article>
-							
-							</div>
-							
-							<!--slider-navigation-->
-							<div class="slider-navigation">
-									<a href="#" class="next">&nbsp;</a>
-									<a href="#" class="prev">&nbsp;</a>
-							</div>								
-							</div>
-							
-							<!--slider-navigation-->
-							
-							
-						</div>
-						
-				</section>
-			
+
+		.music-list {
+			overflow: hidden;
+			margin: 0 auto;
+			padding: 30px 15px;
+			border-radius: 10px;
+			border: 5px solid #fff;
+		}
+
+		.music-list li {
+			overflow: hidden;
+			margin: 0 10px 10px;
+			width: calc(50% - 20px);
+			float: left;
+		}
+
+		.music-list .music-name {
+			overflow: hidden;
+			margin: 0 auto;
+			width: 100%;
+			height: 22px;
+		}
+
+		.music-list .music-name p {
+			overflow: hidden;
+			display: table;
+			margin: 0 auto;
+			width: 100%;
+			height: 22px;
+			line-height: 22px;
+			font-size: 16px;
+			color: #fff;
+			text-align: center;
+		}
+
+		.video-img-mask {
+			overflow: hidden;
+			margin: 0 auto;
+			width: 72px;
+			height: 60px;
+		}
+
+		.music-name p.on {
+			-webkit-animation: tada 1.5s .2s ease both infinite;
+			-moz-animation: tada 1.5s .2s ease both infinite;
+		}
+
+		@-webkit-keyframes tada {
+			0% {
+				-webkit-transform: scale(1)
+			}
+
+			10%,
+			20% {
+				-webkit-transform: scale(0.9) rotate(-3deg)
+			}
+
+			30%,
+			50%,
+			70%,
+			90% {
+				-webkit-transform: scale(1.1) rotate(3deg)
+			}
+
+			40%,
+			60%,
+			80% {
+				-webkit-transform: scale(1.1) rotate(-3deg)
+			}
+
+			100% {
+				-webkit-transform: scale(1) rotate(0)
+			}
+		}
+
+		@-moz-keyframes tada {
+			0% {
+				-moz-transform: scale(1)
+			}
+
+			10%,
+			20% {
+				-moz-transform: scale(0.9) rotate(-3deg)
+			}
+
+			30%,
+			50%,
+			70%,
+			90% {
+				-moz-transform: scale(1.1) rotate(3deg)
+			}
+
+			40%,
+			60%,
+			80% {
+				-moz-transform: scale(1.1) rotate(-3deg)
+			}
+
+			100% {
+				-moz-transform: scale(1) rotate(0)
+			}
+		}
+
+		#page-1-div,
+		#page-2-div,
+		#page-3-div,
+		#page-4-div {
+			margin: 0;
+			border: 0;
+			padding: 0;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="container clearfix">
+
+		<!--SIDEBAR-->
+		<aside id="sidebar">
+
+			<!--logo-->
+			<a href="#" class="logo"><img src="images/logo.png" alt="logo" /></a>
+
+			<!--main-menu-->
+			<nav class="main-nav">
+				<ul>
+					<script>
+						function switchPage(num) {
+							var totlePageNum = 6;
+							for (var i = 1; i <= totlePageNum; ++i) {
+								$("#page-" + i + "-button").removeClass("active");
+								document.getElementById("page-" + i + "-div").setAttribute("hidden", true);
+
+							}
+							$("#page-" + num + "-button").addClass("active");
+							document.getElementById("page-" + num + "-div").removeAttribute("hidden");
+						}
+					</script>
+					<li class="active" id="page-1-button" onclick="switchPage(1);">主页</li>
+					<li id="page-2-button" onclick="switchPage(2);">关于本站</li>
+					<li id="page-3-button" onclick="switchPage(3);">墨茶の痕迹</li>
+					<li id="page-4-button" onclick="switchPage(4);">悼念墨茶</li>
+				</ul>
+			</nav>
+
+			<!--social-navigatoin-->
+			<ul class="social-nav clearfix">
+				<div class="music-box">
+
+					<div class="video-img-mask">
+						<img src="images/video_icon.png" class="video-iocn" alt="">
+						<audio class="audio" src="https://lawrence-1251535219.cos.ap-chengdu.myqcloud.com/fr.mp3"
+							preload="auto"></audio>
+					</div>
+					<div class="music-name">&nbsp;</div>
+
+				</div>
+
+				<script type="text/javascript" src="js/jquery.min.js"></script>
+				<script type="text/javascript">
+					$(function () {
+						//jq 转js 控制暂停或播放切换
+						// 获取所有audios
+						var audios = document.getElementsByTagName("audio");
+						// 暂停函数
+						function pauseAll() {
+							var self = this;
+							[].forEach.call(audios, function (i) {
+								// 将audios中其他的audio全部暂停
+								i !== self && i.pause();
+							})
+						}
+						// 给play事件绑定暂停函数
+						[].forEach.call(audios, function (i) {
+							i.addEventListener("play", pauseAll.bind(i));
+						});
+						//点击切换播放
+						$(".video-img-mask").click(function () {
+							if (!$(this).hasClass("video-img-paly")) {//如果当前播放
+								$('.video-img-mask').removeClass("video-img-paly");
+								$('.audio-iocn').attr('src', 'images/audio_icon.png'); //播放图片
+								$('.video-iocn').attr('src', 'images/video_icon.png'); //播放图片
+								$(this).addClass("video-img-paly");
+								$('.music-name p').removeClass("on");
+								$(this).parents('li').find('.music-name p').addClass("on");
+								$(this).find('.audio-iocn').attr('src', 'images/play_icon.png');  //播放图片
+								$(this).find('.video-iocn').attr('src', 'images/play_icon.png');  //播放图片
+								$(this).find('.audio').get(0).play();  //开始播
+							} else { //如果当前暂停
+								$(this).removeClass("video-img-paly");
+								$('.music-name p').removeClass("on");
+								$(this).find('.audio-iocn').attr('src', 'images/audio_icon.png'); //播放图片
+								$(this).find('.video-iocn').attr('src', 'images/video_icon.png');  //播放图片
+								$(this).find('.audio').get(0).pause();  //开始播放
+							}
+						})
+					});
+				</script>
+
+			</ul>
+
+		</aside>
+
+
+
+		<!--CONTENT-->
+		<section id="content">
+			<div id="page-1-div">
+
+				<!--slider-->
+				<div class="slider">
+
+					<div class="slides">
+
+						<!--slide-->
+						<article>
+							<img src="images/image_1.jpg" alt="Slider Image" />
+							<p>图源：芒果猫Official</p>
+						</article>
+						<!--slide-->
+						<article>
+							<img src="images/image_2.jpg" alt="Slider Image" />
+							<p>希望你有很多的草莓和饺子吃</p>
+						</article>
+
+						<!--slide-->
+						<article>
+							<img src="images/image_3.jpg" alt="Slider Image" />
+							<p>愿你一路走好</p>
+						</article>
+
+						<!--slide-->
+						<article>
+							<img src="images/image_4.jpg" alt="Slider Image" />
+							<p>大家来看你来了</p>
+						</article>
+
+					</div>
+
+					<!--slider-navigation-->
+					<div class="slider-navigation">
+						<a href="#" class="next">&nbsp;</a>
+						<a href="#" class="prev">&nbsp;</a>
+					</div>
+				</div>
+
+				<!--slider-navigation-->
+
+
 			</div>
-							
-				
-				<!-- jQuery -->
-				<script src="js/jquery-1.7.1.min.js"></script>
-				<script src="js/jquery.cycle.all.js"></script>
-				<script src="js/tabs-accordian.js"></script>				
-				
-				<!-- Custom JS -->
-				<script src="js/custom.js"></script>		
-		<div style="display:none"><script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript' charset='gb2312'></script></div>
+			<div id="page-2-div">
+
+				<!--header-->
+				<header>
+
+					<h2>关于本站 <span> - 愿墨茶安息</span></h2>
+				</header>
+
+				<!--content-->
+				<article>
+					<h3>愿每个人都能被世界温柔以待</h3>
+
+					<p>在各种各样意识形态机器、集体幻觉的唤询与规训下，真实的墨茶已经被埋藏。“后真相时代”，或许唯一不重要的便是真相。但墨茶，他并不是一个符号，供人死后消费。曾有血有肉认真活过的他，只是需要安静，真相为他而存。简中网络的记忆只有七天。互联网不会记住真实的他，我们给他留一个安静的家。本站完全公益。
+					</p>
+
+					<ul>
+						<li>- 感谢您悼念墨茶，多一个人，就多一份真实的记忆.</li>
+						<li>- 本站不设评论区，希望给墨茶安静.</li>
+						<li>- 如果有想说的话，或者想补充墨茶生前记录，可以发送至邮箱：clarklawrenceprism@gmail.com，审核通过后将发布至本站.</li>
+					</ul>
+
+					<p>墨茶Official（1998年4月5日-2021年1月10日），姓陈，男，四川凉山人，B站UP主。2021年1月10日10时许，“墨茶official”在会理县出租屋内被发现死亡。经会理县公安局勘查，确定其为因病死亡，在会理县殡仪馆火化后，其骨灰由母亲带回西昌，于1月12日安葬。墨茶Official是一位哔哩哔哩UP主，自2020年2月起开始在哔哩哔哩投稿、直播，共发布28条视频作品，其中，大多是游戏直播剪辑作品，也穿插着一些二次元主题的混剪视频。
+					</p>
+					<p>墨茶在B站的第一条视频，发布于2020年2月27日，是一条关于游戏的视频。墨茶现有的95条动态中，28条视频是游戏直播时的剪辑，剩下的67条，则是他的生活日常.2020年6月13日，墨茶在B站公开一份医院入院凭证，其中写明，经初步诊断为鼻部肿物，拟入院日期为2020年6月10日。2020年7月31日，他的动态显示“没想到不知不觉已经一百粉丝了，这是好的开始”。
+					</p>
+
+					<p>2020年8月30日，B站up主“御坂伊里奇”替墨茶发出求助：“墨茶是个低收入的小工人，无力承担诊治费用，希望得到大家的帮助，能让他尽快手术。”墨茶在数月前感觉身体不适，到医院检查后发现鼻腔内有肿物，医生建议住院并进行病理检查，但因为没钱，墨茶当时并未进行诊治。求助发出时，肿物已经让墨茶呼吸困难，并且压迫到了他的视觉神经。
+					</p>
+
+					<p>曾有网友建议墨茶以网络互助的方式筹款用以治疗，但因为墨茶没有钱做检查，也没有办法提供申请网络互助所需的相关材料而作罢。</p>
+
+					<p>2020年12月21日，墨茶说：“看动态全都在吃饺子，可是我从小到大都没有在冬至吃过饺子，第一次知道有这样的习俗。”.墨茶曾给自己的群友说，2500够他一年生活费。余额-2049.34元，因为买不起整瓶，治病的药都要一片一片的买。2020年12月29日，墨茶发文说，“老想吃草莓，最近被病折磨的吃什么吐什么，然后特别特别想吃草莓。可惜草莓太贵了。”有网友在该条留言下称，“好想请你吃草莓。”2020年12月31日，墨茶发布了最后一条动态称，“然而我还在病床上躺着，令人感叹。”
+					</p>
+
+					<p>墨茶奶奶生病，因病致贫，父母躲债跑路，自己高中辍学后打工糊口，又被黑厂欺骗，没有领到工资。鼻子上也长了肿瘤。最后在切除肿瘤时发现罹患糖尿病，但无积蓄继续治疗，最后因酮症酸中毒逝世。墨茶的身份还被其父母用于注册公司。墨茶生前有数个B站账号，其中账号“TEA黑茶”（已被封禁）发布的视频、评论表明，墨茶生前是一位马克思列宁主义者。
+					</p>
+				</article>
+
+			</div>
+			<div id="page-3-div">
+
+				<!--header-->
+				<header>
+
+					<h2>墨茶的痕迹 <span> - 生前记录.</span></h2>
+
+				</header>
+
+				<!--content-->
+				<article class="gallery">
+
+					<ul class="clearfix">
+						<li>
+							<a href="images/1.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/1.png" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/2.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/2.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/3.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/3.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/4.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/4.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/5.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/5.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/6.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/6.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/8.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/8.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/9.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/9.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/10.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/10.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/11.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/11.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/12.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/12.png" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/13.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/13.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/14.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/14.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/15.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/15.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/16.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/16.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/17.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/17.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/18.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/18.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/19.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/19.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/20.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/20.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/21.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/21.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/22.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/22.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/23.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/23.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/24.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/24.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/25.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/25.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/26.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/26.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/36.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/36.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/37.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/37.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/38.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/38.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/39.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/39.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/42.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/42.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/43.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/43.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/44.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/44.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/45.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/45.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>B站上的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/27.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/27.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>群里的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/28.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/28.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>群里的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/29.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/29.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>群里的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/30.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/30.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>群里的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/31.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/31.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>群里的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/32.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/32.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>群里的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/33.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/33.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>群里的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/34.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/34.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>群里的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/35.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/35.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的生前账号记录</h4>
+								<span>群里的墨茶</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/40.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/40.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的好友记述</h4>
+								<span>墨茶生平</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/46.jpg" title="墨茶的生前账号记录" class="lightbox"><img src="images/46.jpg"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶的好友记述</h4>
+								<span>墨茶生平</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/47.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/47.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>别人送墨茶的草莓</h4>
+								<span>墨茶生前记录</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/48.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/48.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶生前住处</h4>
+								<span>墨茶生前记录</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/49.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/49.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶生前住处</h4>
+								<span>墨茶生前记录</span>
+							</div>
+						</li>
+						<li>
+							<a href="images/50.png" title="墨茶的生前账号记录" class="lightbox"><img src="images/50.png"
+									alt="" /></a>
+							<div class="overlay">
+								<h4>墨茶生前住处</h4>
+								<span>墨茶生前记录</span>
+							</div>
+						</li>
+					</ul>
+
+				</article>
+
+
+			</div>
+			<div id="page-4-div" class="column-container">
+
+				<!--header-->
+				<header>
+
+					<h2>悼念墨茶<span> - 群众留言</span></h2>
+
+
+
+				</header>
+
+				<!--BLOG-->
+				<section id="blog" class="clearfix">
+
+					<!--blog content-->
+					<div class="blog-content column">
+
+						<article class="clearfix">
+
+							<figure>
+								<img src="images/dl.png" alt="image" />
+							</figure>
+							<div>
+								<h3 id="page-5-button" onclick="switchPage(5)">墨茶，一位UP主的身后事,一场被消费的死亡</h3>
+								<p class="meta"><span>2021/1/26</span></p>
+								<p>梵高的愤怒一分不值，直到他被送进了坟墓。</p>
+
+							</div>
+
+
+
+						</article>
+						<article class="clearfix">
+							<figure>
+								<img src="images/dl.png" alt="image" />
+							</figure>
+							<div>
+								<h3 id="page-6-button" onclick="switchPage(6)">我与墨茶Official的小故事</h3>
+								<p class="meta"><span>2021/1/22 雨雪啦(微博:我是小赵01。)</span></p>
+								<p>来源：http://www.360doc.cn/article/27492377_958341870.html</p>
+
+							</div>
+						</article>
+
+
+					</div>
+					<!--blog sidebar-->
+					<aside class="blog-sidebar column">
+
+						<div class="widget">
+							<h4>悼念墨茶</h4>
+							<script language="JavaScript">
+// <!-- 
+// var caution = false
+//                                 function setCookie(name, value, expires, path, domain, secure) {
+//                                     var curCookie = name + "=" + escape(value) +
+//                                         ((expires) ? "; expires=" + expires.toGMTString() : "") +
+//                                         ((path) ? "; path=" + path : "") +
+//                                         ((domain) ? "; domain=" + domain : "") +
+//                                         ((secure) ? "; secure" : "")
+//                                     if (!caution || (name + "=" + escape(value)).length <= 4000)
+//                                         document.cookie = curCookie
+//                                     else
+//                                         if (confirm("Cookie exceeds 4KB and will be cut!"))
+//                                             document.cookie = curCookie
+//                                 }
+//                                 function getCookie(name) {
+//                                     var prefix = name + "="
+//                                     var cookieStartIndex = document.cookie.indexOf(prefix)
+//                                     if (cookieStartIndex == -1)
+//                                         return null
+//                                     var cookieEndIndex = document.cookie.indexOf(";", cookieStartIndex + prefix.length)
+//                                     if (cookieEndIndex == -1)
+//                                         cookieEndIndex = document.cookie.length
+//                                     return unescape(document.cookie.substring(cookieStartIndex + prefix.length, cookieEndIndex))
+//                                 }
+//                                 function deleteCookie(name, path, domain) {
+//                                     if (getCookie(name)) {
+//                                         document.cookie = name + "=" +
+//                                             ((path) ? "; path=" + path : "") +
+//                                             ((domain) ? "; domain=" + domain : "") +
+//                                             "; expires=Thu, 01-Jan-70 00:00:01 GMT"
+//                                     }
+//                                 }
+//                                 function fixDate(date) {
+//                                     var base = new Date(0)
+//                                     var skew = base.getTime()
+//                                     if (skew > 0)
+//                                         date.setTime(date.getTime() - skew)
+//                                 }
+//                                 var now = new Date()
+//                                 fixDate(now)
+//                                 now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000)
+//                                 var visits = getCookie("counter")
+//                                 if (!visits)
+//                                     visits = 1
+//                                 else
+//                                     visits = parseInt(visits) + 1
+//                                 setCookie("counter", visits, now)
+//                                 document.write("您是到访的第" + visits + "位用户！")
+//  -->
+							</script>
+							<a href="http://www.reliablecounter.com" target="_blank"><img src="https://www.reliablecounter.com/count.php?page=missmocha.xyz/5208686&digit=style/plain/3/&reloads=1" alt="reliablecounter.com" title="reliablecounter.com" border="0"></a><br /><a href="http://https://www.reliablecounter.com/blog" target="_blank" style="font-family: Geneva, Arial; font-size: 9px; color: #330010; text-decoration: none;">reliablecounter blog</a><br />
+
+						</div>
+
+
+					</aside>
+
+				</section>
+
+			</div>
+			<div id="page-5-div" class="column-container">
+				<!--header-->
+				<header>
+
+					<h2>悼念墨茶<span> - 群众留言</span></h2>
+
+				</header>
+
+				<!--BLOG-->
+				<section id="blog" class="clearfix">
+
+					<!--blog content-->
+					<div class="blog-content column">
+
+						<article class="post">
+
+							<h3 class="title"><a href="#">墨茶，一位UP主的身后事,一场被消费的死亡</a></h3>
+							<p class="meta"><span>2021/1/26</span></p>
+							<blockquote>
+								<p>梵高的愤怒一分不值，直到他被送进了坟墓。</p>
+							</blockquote>
+							<p>2021年1月21日晚间，B站一位UP主墨茶Offcial离世的消息冲上微博热搜，这位青年的b站动态所展现出的阳光和乐观的精神，和他在现实中贫病交加的境遇形成了巨大的反差，这条令人悲痛的信息瞬间突破了万千网友的心防，悲伤与惋惜萦绕在大家的心头。
+							</p>
+
+							<p>人走茶未凉，在墨茶去世的消息广泛传播开之后，墨茶生前不到两百粉的账号在短短两天之内瞬间涨粉到一百万，无数人涌入他曾经访客寥寥无几的b站动态，附上一句：</p>
+							<h4>“对不起，现在才认识你。”</h4>
+							<p>但紧随其后的是质疑墨茶死亡真实性的声音，一则转发的消息在各大QQ群内被广泛传播，其内容直指墨茶伪造死亡，同时间知乎上一名用户名为“初码”（现用户名为：初码张工）的用户更是扬言要讲墨茶“绳之以法”，一时“墨茶事件反转”的论调在舆论场上喧嚣尘上。
+							</p>
+							<p>短短几日内，各方势力带着自己的“身份认同”的语境，“你方唱罢我登场”。前有极端女权主义者借机攻击男性继续挑动性别对立，后有无数营销自媒体借着“回顾墨茶动态”把庞大流量拥揽入怀，饱受网友质疑的墨茶父母现身说明情况，却与当地医院的说法不符......在多方的目光汇聚下，一位生前籍籍无名的小up，似乎现在盖棺也无法定论。
+							</p>
+							<p>马克思从人与人的关系角度界定，在他看来人是一切社会关系的总和，生前的墨茶按照目前报道所揭示的情况来看，可满足他社交属性的朋友似乎只有他在网络上屡次对这个贫病交加的青年伸出援手的朋友们，可现在，一场死亡，将这个社会边缘的青年一下子拉进了光鲜亮丽的舆论场中央，可惜人死魂亦去，娱乐至死的舆论场无从下手，只能为这位青年人生的终局披上包装，于是乎：
+							</p>
+							<h4>“墨茶的身后事，变成了大家的事。”</h4>
+							<p>斯坦福大学脑科学教授，大卫伊格曼曾经描述过人的三次死亡，第一次死亡，就是医学上认证的死亡，这个时候你会被医院宣告已经死去。而第二次死亡，是在你的葬礼上。当你生前的那些亲朋好友神情肃穆，甚至是泣不成声的出席你的葬礼的时候，这意味着一个人的第二次死亡，这时你的社会存在，会被干干净净的从这个社会上，从你生前各种复杂的人际关系里抹去。第三次死亡，也是最后一次死亡，听起来有些伤感。当这个世界上还记着你的最后一个人离开人世，抑或把你完全的遗忘，那么也就代表着你真的彻底的离去了。这个世界，整个洪荒宇宙将再也找不到任何跟你有关的人事，找不到任何能够证明你来过这个世上的信息。而这三次死亡在马克思看来，便是改造世界的能力的完全遗失，和社会联系的消失。共同促成了一个个体的死亡。
+							</p>
+							<p>对于墨茶而言，现实中的他甚至在死后都没人能第一时间发现，而在网上的他却在短短的时间内被千万人阅尽一生，似乎属于他的第三次死亡终究要来的晚一些，但也从没有人统计过，这一次次关注的流量背后所产生的经济利益又能拯救多少个可怜又可敬的墨茶，正如在他战地一视频下热评第一所说的那样“到最后也没考虑卖惨过活，直到死后才被人所知，一个被命运针对也从未低头的硬汉的灵魂。”
+							</p>
+							<h4>“这是一次昂贵，但是和墨茶没多大关系的死亡”</h4>
+							<p>墨茶作为一个原本和这个消费社会几乎“绝缘”的青年，在死后却意外的和社会变得“有缘”起来。远到“三和大神”“抗压吧老鼠人”这些都市社会的边缘群体，近到蛋壳公寓暴雷事件被迫被赶出家门的独身青年，他们的事件脉络已经慢慢与墨茶这位可怜的青年重合，他们所折射了一个深层的现实，那边是在这个社会中，存活的权力也终于被异化成为了一件可以租赁但不可买断的商品。
+							</p>
+							<p>从这个角度再来回顾这个世界，无数互联网大厂中996的打工人，穷极自己的一生似乎是在未来美好未来而奋斗，但是剥下这层浓厚鸡汤所铸成的外衣，可怜又可敬的他们不也是拼尽自己改造客观世界的全部技能，来向全社会租下自己生存的权力。
+							</p>
+							<p>可这些劳动者们不曾想过，自己的身上拥有一笔自己此生永远无法触及的财富，那便是一场原本属于自己的死亡。</p>
+							<p>生与死，原本就是对立统一的现象，但是在墨茶事件中，这个贫病青年的死亡却被无数人变成了可以治肺痨的人血馒头，一个自然的过程被人为的干涉，死亡，从这一刻开始有了属于他的附加值，无数原本与墨茶不存在强关联社会关系的个体蜂拥而至，从这场死亡中找寻着属于自己的角度，把死亡的解读兑换成符合自身利益的筹码，让一场悲剧成为了讨伐异端的称手兵器。
+							</p>
+							<p>每次劳动者逝去的新闻，都会变成一个个意见领袖摇旗呐喊的冲锋号令，成为吸引着炙热眼球的摇钱树，死亡到此已经成为了属于社会的一种另类的消费品，无产者所剩的最后一点尊严也就此不属于他本身。
+							</p>
+							<h3>私有制为基础的商品经济中，人与人的社会关系被物与物的关系所掩盖，从而使商品具有一种神秘的属性，似乎它具有决定商品生产者命运的神秘力量。马克思把商品世界的这种神秘性比喻为拜物教，称之为商品拜物教。
+							</h3>
+							<p>而如今，马克思口中的神秘性已经成为了消费社会运行的铁律，紧紧的束缚在了我们每个人的肉体与精神之上，我们本身作为人已经不具备任何属性，我们必要用商品为自己赋能，我们穿什么？吃什么？玩什么？看什么？似乎只有这些才能界定我们自身，才能决定一个千古的哲学问题：
+							</p>
+							<h3>“我们是谁？”</h3>
+							<p>到了今天，墨茶离去的世界，死亡也终于成为了这万千商品其中之一。</p>
+							<p>一位up的身后事，已然成为界定自我的消费盛宴。</p>
+							<p>看吧，我的朋友，你已经拥有了免费的《赛博朋克2021》何必去追寻《赛博朋克2077》呢？</p>
+							<p>毕竟，生死都已不公平，唯有商品与消费永恒。</p>
+
+							<p>作者｜Barricade（棱镜视野）</p>
+
+						</article>
+
+					</div>
+
+					<!--blog sidebar-->
+					<aside class="blog-sidebar column">
+
+						<div class="widget">
+							<h4>悼念墨茶</h4>
+
+						</div>
+
+
+					</aside>
+
+				</section>
+			</div>
+			<div id="page-6-div" class="column-container">
+
+				<!--header-->
+				<header>
+
+					<h2>悼念墨茶<span> - 群众留言</span></h2>
+
+				</header>
+
+				<!--BLOG-->
+				<section id="blog" class="clearfix">
+
+					<!--blog content-->
+					<div class="blog-content column">
+
+						<article class="post">
+
+							<h3 class="title"><a href="#">我与墨茶Official的小故事</a></h3>
+							<p class="meta"><span>2021/1/22 雨雪啦(微博:我是小赵01。)</span></p>
+							<blockquote>
+								<p>来源：http://www.360doc.cn/article/27492377_958341870.html</p>
+							</blockquote>
+							<p>从昨晚墨茶Official事件就在Q群中流传，也传到了我所在的B站交流群。</p>
+
+							<p>我们这个群一开始是某个人建的UP主交流群，后来慢慢变成了什么都聊的游戏群。</p>
+							<p>有成员注意到，墨茶Official以前的网名叫清羽，这恰巧和我群以前一位用着有马公生头像的活跃成员昵称重合，通过更多线索比对，同样是四川凉山，最关键的是我通过支付宝转账记录得知的他真名，与墨茶入院凭证上露出的姓名边角一致。
+							</p>
+							<p>至此我们判断，墨茶就是我们以前认识的清羽。顿时我们都陷入了震惊。</p>
+							<p>清羽曾是我群元老，群里总有那么几个活跃分子，他也是其中之一，每天和我们吹水。虽然时间长了大家每天有说有笑，但是说到底还是网络社交。然而从某一天开始，他的发言有些不知所云。那几天他说到自己“被家里赶出来了”“钱包被偷了”时间过于久远，只零星能回忆起这些碎片。
+							</p>
+
+							<p>没过两天的一个晚上，我在外面运动时突然接到陌生的电话，对面说“扇子我是清羽，我现在……（哭）我现在在外面，也没有钱……我找了很多人但是都不行，我就想到你了，只有你能帮我了……你能不能先借我点钱，等以后我一定还你！”我在确认了他身份之后，觉得他说的应该是真的，于是没多犹豫就先借给了他500，让他安顿下来。后来过了几天，他再次通过QQ向我求助，于是我又分两次给了他各500元，至此我总共借给清羽1500元。
+							</p>
+							<p>对于墨茶而言，现实中的他甚至在死后都没人能第一时间发现，而在网上的他却在短短的时间内被千万人阅尽一生，似乎属于他的第三次死亡终究要来的晚一些，但也从没有人统计过，这一次次关注的流量背后所产生的经济利益又能拯救多少个可怜又可敬的墨茶，正如在他战地一视频下热评第一所说的那样“到最后也没考虑卖惨过活，直到死后才被人所知，一个被命运针对也从未低头的硬汉的灵魂。”
+							</p>
+
+							<p>时间过得很快，转眼半年过去了，当我想起清羽没还钱这档子事的时候，他就失联了，QQ也不回，群里也没见再说过话，仿佛他就这么人间蒸发了。后来在群聊当中，我才知道，借他钱的不只我自己。清羽当时总共找群里能联系上的几个人借了2000多元。
+							</p>
+							<p>毕竟这些钱也无从追查，我们索性都当是丢了，由此群里也产生了关于他的笑话，因为不知所云与借钱不还这些事，我们常用“孔乙己”来调侃他。但终究我们不知道是被骗了还是他又遇到了什么别的事。
+							</p>
+							<p>直到昨天。我昨夜今晨翻阅了墨茶的动态，心情复杂，却又没起什么波澜。时隔五年我们终于知道了当年借钱不还的那个人的下落，却是以这种方式。看着他曾经的一条条动态，我心想，啊，他还没放弃做mad啊，还做了V，播游戏视频，至少去年他还能够在他心爱的领域有所活跃……
+							</p>
+							<p>我们无法想象他在群里的时候过着怎样的生活和我们聊天，也无从得知他消失后经历了些什么，又是如何换了一个身份重回B站。只是当我们发现清羽的真名与墨茶的入院单对上的时候，除了震惊也多了一分失落。
+							</p>
+							<p>走好吧，清羽。事到如今真希望当年我们几个借你的钱真的帮你度过了一个难关，只是没想到你还是这么艰难的走完了剩下的路。我们这些年可能错怪你了。你并不是孤身一人，我们这群人都记得你。
+							</p>
+
+
+						</article>
+
+					</div>
+
+					<!--blog sidebar-->
+					<aside class="blog-sidebar column">
+
+
+						<div class="widget">
+							<h4>悼念墨茶</h4>
+
+						</div>
+
+
+
+					</aside>
+
+				</section>
+
+			</div>
+		</section>
+
+	</div>
+
+
+	<!-- jQuery -->
+	<script src="js/jquery-1.7.1.min.js"></script>
+	<script src="js/jquery.cycle.all.js"></script>
+	<script src="js/tabs-accordian.js"></script>
+	<script src="js/jquery.lightbox-0.5.min.js"></script>
+
+	<!-- Custom JS -->
+	<script src="js/custom.js"></script>
+	<div style="display:none">
+		<script src='http://v7.cnzz.com/stat.php?id=155540&web_id=155540' language='JavaScript'
+			charset='gb2312'></script>
+	</div>
 </body>
+
 </html>
